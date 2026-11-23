@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Papertrail.API/Papertrail.API.csproj" />
+  <Project Path="Papertrail.Data/Papertrail.Data.csproj" />
+</Solution>
