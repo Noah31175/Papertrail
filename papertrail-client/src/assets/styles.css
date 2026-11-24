@@ -714,6 +714,95 @@ td {
   color: #a51f1f;
 }
 
+.project-summary-grid {
+  margin-bottom: 22px;
+}
+
+.project-card {
+  margin-bottom: 25px;
+}
+
+.project-filters {
+  display: flex;
+  gap: 12px;
+}
+
+.project-filter {
+  padding: 11px 13px;
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  background: white;
+  color: #52627a;
+  font-size: 13px;
+  outline: none;
+}
+
+.project-filter:focus {
+  border-color: #11868d;
+}
+
+.project-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.project-status.pending {
+  background: #fff0da;
+  color: #c66b08;
+}
+
+.project-status.in-progress {
+  background: #e1edff;
+  color: #2866bc;
+}
+
+.project-status.completed {
+  background: #dff5e8;
+  color: #14803c;
+}
+
+.form-field select {
+  width: 100%;
+  height: 46px;
+  padding: 0 13px;
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  font-family: inherit;
+  font-size: 13px;
+  color: #52627a;
+}
+
+.form-field select:focus {
+  border-color: #11868d;
+}
+
+.form-field textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.form-field textarea:focus {
+  border-color: #11868d;
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
 @media (max-width: 650px) {
   .sidebar {
     width: 75px;
@@ -806,6 +895,14 @@ td {
   }
 
   .form-actions button {
+    width: 100%;
+  }
+
+  .project-filters {
+    flex-direction: column;
+  }
+
+  .project-filter {
     width: 100%;
   }
 }

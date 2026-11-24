@@ -10,11 +10,11 @@
         <span>▦</span>Dashboard
       </RouterLink>
       <RouterLink to="/clients" class="nav-link">
-        <span>♙</span> Clients
+        <span>♙</span>Clients
       </RouterLink>
-      <div class="nav-link disabled-link" aria-disabled="true">
-        <span>▤</span>Project Details
-      </div>
+      <RouterLink to="/projects" class="nav-link">
+        <span>▤</span>Projects
+      </RouterLink>
       <div class="nav-link disabled-link" aria-disabled="true">
         <span>▧</span>Track Invoices
       </div>

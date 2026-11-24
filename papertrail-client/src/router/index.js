@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '../views/DashboardView.vue'
 import ClientListView from '../views/ClientListView.vue'
 import ClientFormView from '../views/ClientFormView.vue'
+import ProjectsView from '../views/ProjectsView.vue'
+import ProjectFormView from '../views/ProjectFormView.vue'
 
 const routes = [
   {
@@ -24,6 +26,21 @@ const routes = [
     path: '/clients/:id/edit',
     name: 'edit-client',
     component: ClientFormView,
+  },
+  {
+    path: '/projects',
+    name: 'projects',
+    component: ProjectsView,
+  },
+  {
+    path: '/projects/new',
+    name: 'add-project',
+    component: ProjectFormView,
+  },
+  {
+    path: '/projects/:id/edit',
+    name: 'edit-project',
+    component: ProjectFormView,
   },
 ]
 
