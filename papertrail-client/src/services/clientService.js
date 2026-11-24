@@ -117,3 +117,13 @@ export function saveClient(client) {
 
   return newClient
 }
+
+export function deleteClient(id) {
+  const clients = getClients()
+
+  const updatedClients = clients.filter(
+    client => String(client.id) !== String(id)
+  )
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedClients))
+}

@@ -695,6 +695,25 @@ td {
   background: #0e737a;
 }
 
+.client-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.delete-client-button {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-client-button:hover {
+  color: #a51f1f;
+}
+
 @media (max-width: 650px) {
   .sidebar {
     width: 75px;

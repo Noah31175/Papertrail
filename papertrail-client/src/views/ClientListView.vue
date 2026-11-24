@@ -4,7 +4,7 @@
   import AppSidebar from '../components/AppSidebar.vue'
   import AppHeader from '../components/AppHeader.vue'
 
-  import { getClients } from '../services/clientService'
+  import { getClients, deleteClient } from '../services/clientService'
 
   const clients = ref(getClients())
 
@@ -25,6 +25,18 @@
         )
       })
   })
+
+function handleDeleteClient(client) {
+  const confirmed = window.confirm(
+    `Are you sure you want to delete ${client.name}?`
+  )
+
+  if (!confirmed) return
+
+  deleteClient(client.id)
+
+  clients.value = getClients()
+}
 </script>
 
 <template>
@@ -87,10 +99,17 @@
                     ${{ Number(client.amountDue || 0).toFixed(2) }}
                   </td>
                   <td>
-                    <RouterLink :to="`/clients/${client.id}/edit`"
-                                class="edit-client-link">
-                      Edit
-                    </RouterLink>
+                    <div class="client-actions">
+                      <RouterLink :to="`/clients/${client.id}/edit`"
+                                  class="edit-client-link">
+                        Edit
+                      </RouterLink>
+
+                      <button class="delete-client-button"
+                              @click="handleDeleteClient(client)">
+                        Delete
+                      </button>
+                    </div>
                   </td>
                 </tr>
                 <tr v-if="filteredClients.length === 0">
