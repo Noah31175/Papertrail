@@ -1,60 +1,29 @@
 <script setup>
   import { ref, computed } from 'vue'
+
   import AppSidebar from '../components/AppSidebar.vue'
   import AppHeader from '../components/AppHeader.vue'
 
+  import { getClients } from '../services/clientService'
 
-  const clients = ref([
-    {
-      id: 1,
-      name: 'Acme Company',
-      email: 'contact@acme.com',
-      phone: '(555) 123-4567',
-      projects: 3,
-      amountDue: 480.00,
-    },
-    {
-      id: 2,
-      name: 'Bright Ideas',
-      email: 'hello@brightideas.com',
-      phone: '(555) 234-5678',
-      projects: 2,
-      amountDue: 650.00,
-    },
-    {
-      id: 3,
-      name: 'Skyline Media',
-      email: 'info@skylinemedia.com',
-      phone: '(555) 345-6789',
-      projects: 1,
-      amountDue: 0,
-    },
-    {
-      id: 4,
-      name: 'Green Valley',
-      email: 'contact@greenvalley.com',
-      phone: '(555) 456-7890',
-      projects: 4,
-      amountDue: 300.00,
-    },
-  ])
+  const clients = ref(getClients())
 
   const searchQuery = ref('')
 
   const filteredClients = computed(() => {
-    const query = searchQuery.value.toLowerCase().trim()
+      const query = searchQuery.value.toLowerCase().trim()
 
-    if (!query) {
-      return clients.value
-    }
+      if (!query) {
+        return clients.value
+      }
 
-    return clients.value.filter((client) => {
-      return (
-        client.name.toLowerCase().includes(query) ||
-        client.email.toLowerCase().includes(query) ||
-        client.phone.includes(query)
-      )
-    })
+      return clients.value.filter((client) => {
+        return (
+          client.name.toLowerCase().includes(query) ||
+          client.email.toLowerCase().includes(query) ||
+          client.phone.toLowerCase().includes(query)
+        )
+      })
   })
 </script>
 
@@ -69,7 +38,9 @@
             <h1>Clients</h1>
             <p>Manage your clients and their information.</p>
           </div>
-          <button class="add-client-button" type="button" disabled>+ Add Client</button>
+          <RouterLink to="/clients/new" class="add-client-button">
+            + Add Client
+          </RouterLink>
         </div>
         <div class="client-summary">
           <div>
@@ -77,7 +48,9 @@
             <p>Total Clients</p>
           </div>
           <div>
-            <h2>{{ clients.filter(client => client.amountDue > 0).length }}</h2>
+            <h2>
+              {{ clients.filter(client => client.amountDue > 0).length }}
+            </h2>
             <p>Clients With Outstanding Balances</p>
           </div>
         </div>
@@ -101,6 +74,7 @@
                   <th>Phone</th>
                   <th>Projects</th>
                   <th>Amount Due</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -109,10 +83,20 @@
                   <td>{{ client.email }}</td>
                   <td>{{ client.phone }}</td>
                   <td>{{ client.projects }}</td>
-                  <td class="amount">${{ client.amountDue.toFixed(2) }}</td>
+                  <td class="amount">
+                    ${{ Number(client.amountDue || 0).toFixed(2) }}
+                  </td>
+                  <td>
+                    <RouterLink :to="`/clients/${client.id}/edit`"
+                                class="edit-client-link">
+                      Edit
+                    </RouterLink>
+                  </td>
                 </tr>
                 <tr v-if="filteredClients.length === 0">
-                  <td colspan="5" class="no-clients">No clients found.</td>
+                  <td colspan="6" class="no-clients">
+                    No clients found.
+                  </td>
                 </tr>
               </tbody>
             </table>

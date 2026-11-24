@@ -495,86 +495,6 @@ td {
   }
 }
 
-@media (max-width: 650px) {
-  .sidebar {
-    width: 75px;
-    min-width: 75px;
-    padding: 20px 10px;
-  }
-
-  .brand {
-    padding: 0;
-    justify-content: center;
-    margin-bottom: 35px;
-  }
-
-  .brand h2,
-  .nav-heading,
-  .nav-link:not(.active) {
-    display: none;
-  }
-
-  .nav-link {
-    justify-content: center;
-    padding: 13px 5px;
-    font-size: 0;
-  }
-
-  .nav-link span {
-    font-size: 19px;
-  }
-
-  .sidebar-bottom {
-    display: none;
-  }
-
-  .topbar {
-    padding: 0 15px;
-  }
-
-  .search-box {
-    width: 65%;
-  }
-
-  .user-info span {
-    display: none;
-  }
-
-  .dashboard {
-    padding: 22px 15px;
-  }
-
-  .summary-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .summary-card {
-    padding: 13px;
-  }
-
-  .page-heading h1 {
-    font-size: 22px;
-  }
-
-  .today-label {
-    display: none;
-  }
-
-  .client-toolbar {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .client-search {
-    width: 100%;
-  }
-
-  .client-summary {
-    grid-template-columns: 1fr;
-  }
-}
-
 .client-summary {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -662,4 +582,211 @@ td {
 .disabled-link {
   opacity: 0.65;
   cursor: default;
+}
+
+.client-form-card {
+  max-width: 950px;
+  margin-bottom: 25px;
+}
+
+.client-form-card h2 {
+  font-size: 19px;
+  margin: 0 0 8px;
+}
+
+.form-description {
+  color: #78869a;
+  font-size: 13px;
+  margin: 0 0 25px;
+}
+
+.client-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 13px;
+  color: #52627a;
+  font-weight: 600;
+}
+
+.form-field input {
+  width: 100%;
+  height: 46px;
+  padding: 0 13px;
+  border: 1px solid #dce3ef;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.form-field input:focus {
+  border-color: #11868d;
+  box-shadow: 0 0 0 2px rgba(17, 134, 141, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #edf0f5;
+}
+
+.form-primary-button,
+.form-secondary-button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-primary-button {
+  background: #11868d;
+  color: white;
+  border: 1px solid #11868d;
+}
+
+.form-primary-button:hover {
+  background: #0e737a;
+}
+
+.form-secondary-button {
+  background: white;
+  color: #52627a;
+  border: 1px solid #dce3ef;
+}
+
+.edit-client-link {
+  color: #11868d;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.add-client-button {
+  display: inline-block;
+  background: #11868d;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.add-client-button:hover {
+  background: #0e737a;
+}
+
+@media (max-width: 650px) {
+  .sidebar {
+    width: 75px;
+    min-width: 75px;
+    padding: 20px 10px;
+  }
+
+  .brand {
+    padding: 0;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+
+  .brand h2,
+  .nav-heading,
+  .nav-link:not(.active) {
+    display: none;
+  }
+
+  .nav-link {
+    justify-content: center;
+    padding: 13px 5px;
+    font-size: 0;
+  }
+
+  .nav-link span {
+    font-size: 19px;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .topbar {
+    padding: 0 15px;
+  }
+
+  .search-box {
+    width: 65%;
+  }
+
+  .user-info span {
+    display: none;
+  }
+
+  .dashboard {
+    padding: 22px 15px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .summary-card {
+    padding: 13px;
+  }
+
+  .page-heading h1 {
+    font-size: 22px;
+  }
+
+  .today-label {
+    display: none;
+  }
+
+  .client-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .client-search {
+    width: 100%;
+  }
+
+  .client-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .client-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field.full-width {
+    grid-column: auto;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
 }
